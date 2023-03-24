@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>input表单元素</title>
+</head>
+<body>
+    <form action="xx.php" method="get">
+        用户名：<input type="text" name="username" value="请输入用户名"/><br/>
+        密码：<input type="password"/ name="pwd"><br/>
+        性别：<label for="nan">男</label><input type="radio" id ="nan"name="sex" value="男" checked ="checked"/><label for="nv">女</label><input type="radio" id ="nv"name="sex" value="女"/><br />
+        爱好：吃饭<input type="checkbox"> 听歌<input type="checkbox"/> 睡觉<input type="checkbox"/>
+        <br/>
+        籍贯：
+        <select>
+            <option selected ="selected">山东</option>
+            <option>北京</option>
+            <option>陕西</option>
+            <option>天津</option>
+        </select>
+        <br>
+        今日反馈：   
+        <textarea cols="50" rows="5">pink老师，我知道这个反馈留言是textarea做的
+        
+
+        </textarea>
+        
+        <input type="submit" value="免费注册"/> <br />
+        <input type="reset" value="重新填写"/>
+        <!--普通按钮 button 后期结合js搭配使用-->
+        <input type="button" value="获取短信验证码"/><br/>
+        上传头像:<input type="file" />
+    </form>
+</body>
+</html>
