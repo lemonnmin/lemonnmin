@@ -1,11 +1,77 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>liulemon留言板</title>
 </head>
-<body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        padding: 100px;
+    }
 
+    textarea {
+        width: 200px;
+        height: 100px;
+        border: 1px pink solid;
+        /* 不设置轮廓 */
+        outline: none;
+        /* 设置其不能改变长宽 */
+        resize: none;
+    }
+
+    li {
+        width: 300px;
+        padding: 5px;
+        background-color: #eee;
+        font-size: 15px;
+        margin: 15px 0;
+    }
+
+        li a {
+            float: right;
+        }
+</style>
+
+<body background="https://w.wallhaven.cc/full/wy/wallhaven-wywpmr.jpg">
+    <textarea></textarea>
+    <button>发布</button>
+    <ul></ul>
+    <script>
+        //1、获取元素
+        var txt = document.querySelector("textarea");
+        var btn = document.querySelector("button");
+        var ul = document.querySelector("ul");
+        //2、给button绑定点击事件
+        btn.onclick = function () {
+            if (txt.value == "") {//当文本框中没有文字时，提示
+                alert("您没有输入内容")
+            } else {
+                //创建元素li作为留言区
+                var li = document.createElement("li");
+                //将文本框中的内容放到li中,a标签中href中的内容代表什么都不执行
+                li.innerHTML = txt.value + "<a href='javascript:;'>删除</a>"
+                txt.value = "";//添加之后文本框的内容清空
+                //将留言添加到ul中，而且在最上方
+                ul.insertBefore(li, ul.children[0]);
+                //当点击删除时删除ul中的li
+                var as = document.querySelectorAll("a");
+                //循环给每个删除绑定事件
+                for (var i = 0; i < as.length; i++) {
+                    as[i].onclick = function () {
+                        //删除当前a标签所在位置的父节点li
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    </script>
 </body>
+
 </html>
